@@ -199,21 +199,60 @@ Arrays Types */
 /* ---------------------------------------------------------
 Tuples Types */
 
-const person: {
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string];
-} = {
+// const person: {
+//   name: string;
+//   age: number;
+//   hobbies: string[];
+//   role: [number, string];
+// } = {
+//   name: "Daniel",
+//   age: 38,
+//   hobbies: ["sports", "cooking", "flying"],
+//   role: [2, "author"],
+// };
+
+// person.role.push("admin") // push() is ONLY accepted in Tuple
+// // person.role =[0, "admin","user") // X Incorrect, can't altere Tuple
+// // person.role[1] = 10 // Incorrect, typle can't be altered
+
+// console.log(person)
+
+/* ---------------------------------------------------------
+Enum Types */
+
+// Approach by hand: tadeious
+
+// const ADMIN = 0;
+// const READ_ONLY = 1;
+// const AUTHOR = 2;
+
+// const person = {
+//   name: "Daniel",
+//   age: 38,
+//   hobbies: ["sports", "cooking", "flying"],
+//   role: ADMIN,
+// };
+
+// console.log(person.role);
+
+// Using tuples
+
+// enum Role { ADMIN, READ_ONLY, AUTHOR} // Correct
+//enum Role { ADMIN = 12, READ_ONLY = 2, AUTHOR= 23} // On numbering logic :  Correct
+enum Role { ADMIN="ADMIN", READ_ONLY= 100, AUTHOR} // Mixing : Correct
+
+const person = {
   name: "Daniel",
   age: 38,
   hobbies: ["sports", "cooking", "flying"],
-  role: [2, "author"],
+  role: Role.ADMIN,
 };
 
+console.log(person.role);
 
-person.role.push("admin") // push() is ONLY accepted in Tuple
-// person.role =[0, "admin","user") // X Incorrect, can't altere Tuple
-// person.role[1] = 10 // Incorrect, typle can't be altered
-
-console.log(person)
+if(person.role === Role.ADMIN) {
+  console.log("User is Admin")
+}
+if(person.role !== Role.AUTHOR) {
+  console.log("User is NOT author")
+}
