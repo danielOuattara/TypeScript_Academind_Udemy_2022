@@ -23,16 +23,16 @@
  CAUTION: The core primitive types in TypeScript are all lowercase!
 */
 
-// function add(n1: number, n2: number) {
-//   return n1 + n2;
-// }
+function add(n1: number, n2: number) {
+  return n1 + n2;
+}
 
-// const number1 = 5;
-// const number2 = 2.8;
+const number1 = 5;
+const number2 = 2.8;
 
-// const result = add(number1, number2);
+const result = add(number1, number2);
 
-// console.log(result);
+console.log(result);
 
 /* ----------------------------------------------- */
 
@@ -505,10 +505,10 @@ Unkown Types */
 /*---------------------------------------------------
 Never Types */
 
-function generateError(message: string, code: number): never {
-  throw { message, code };
-}
+// function generateError(message: string, code: number): never {
+//   throw { message, code };
+// }
 
-const result = generateError("Bad Request", 400);
+// const result = generateError("Bad Request", 400);
 
-console.log("result = ", result);
+// console.log("result = ", result);

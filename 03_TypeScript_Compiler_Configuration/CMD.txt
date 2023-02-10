@@ -31,3 +31,7 @@ tsc -w      => runs all *.ts file in watch mode
     -noEmitOnError: stop emitting file on compilation errors
 
 10) 
+    - strict: true
+    - noImplicitAny
+    - strictNullCheck
+    
