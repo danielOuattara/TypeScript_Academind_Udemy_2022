@@ -1,6 +1,6 @@
-const button = document.querySelector("button");
-const input1 = document.getElementById("num1")! as HTMLInputElement;
-const input2 = document.getElementById("num2")! as HTMLInputElement;
+const button = document.querySelector("button")! as HTMLButtonElement; // type casting
+const input1 = document.getElementById("num1")! as HTMLInputElement; // type casting
+const input2 = document.getElementById("num2")! as HTMLInputElement; // type casting
 
 function add(num1: number = 0, num2: number = 0) {
   return num1 + num2;
