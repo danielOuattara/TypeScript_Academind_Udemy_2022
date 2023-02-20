@@ -28,7 +28,7 @@ function add(n1: number, n2: number, showResult: boolean, phrase: string) {
 }
 
 let number1: number = 5;
-// Not useful & redondant: native type inference in TypeScript already does the job
+// Not useful & redundant: native type inference in TypeScript already does the job
 
 // let number1 = 5; // good V
 

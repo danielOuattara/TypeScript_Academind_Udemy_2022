@@ -9,8 +9,8 @@ const person = {
 
 console.log("person = ", person);
 
-// console.log(person.lastname);  // Error
-// Incorrect, TypeScript knows that there is no property called lastname in person object
+// console.log(person.lastName);  // Error
+// Incorrect, TypeScript knows that there is no property called lastName in person object
 
 // autocompletion OK using the dot
 
@@ -49,7 +49,7 @@ const person4: {
 };
 
 console.log("person4.age = ", person4.age);
-// Auto completion: avalaible
+// Auto completion: available
 
 /* ----------------------
 // Nested Objects & Types */
