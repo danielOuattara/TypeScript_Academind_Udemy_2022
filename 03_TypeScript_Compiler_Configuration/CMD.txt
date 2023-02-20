@@ -1,31 +1,35 @@
 
-1) watch mode
+1) watch mode single file
 tsc -w <filename>
 
 2) multiple file compilation in same time:
 tsc --init  => generate the "tsconfig.json" file
 tsc -w      => runs all *.ts file in watch mode
 
-3) including & excluding file: see tsconfig.json
+3) including & excluding file: see bottom of tsconfig.json
 
 4) choosing compilation target
 
 5) typeScript core Libs: 
-    - if "lib" option is not set, TypeScript set iteself many options by default
-    - if "lib" option is SET, I have to specify all library that I need to work with
+    - if "lib" option is not set, TypeScript set itself many 
+      options by default following the 'target' options value
+    
+    - if "lib" option is SET, I have to specify all library 
+      that I need to work with
 
 6) more configuration & compilation options:
     - allowsJs
     - checkJS
+    - jsx: for ReactJs Typescript
 
 7) 
-    working woth sourceMap option: help to debug in .ts files 
+    working with sourceMap option: help to debug *.ts files 
 
 8) 
     -rootDir & outDir options 
     - removeComments // in .js
     - noEmit options
-    - downlevelItration
+    - downlevel Iteration
 
 9)  
     -noEmitOnError: stop emitting file on compilation errors
