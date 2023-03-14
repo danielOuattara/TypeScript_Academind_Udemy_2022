@@ -7,13 +7,13 @@ console.log("-------");
 */
 
 interface Bird {
-  type: "bird"; // help to discriminates
+  type: "bird"; // help to discriminate
   year: "2003";
   flyingSpeed: number;
 }
 
 interface Horse {
-  type: "horse"; // help to discriminates
+  type: "horse"; // help to discriminate
   gallopSpeed: number;
 }
 

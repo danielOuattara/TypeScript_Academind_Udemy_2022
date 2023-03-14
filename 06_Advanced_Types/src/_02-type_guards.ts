@@ -31,7 +31,7 @@ type Employee2 = {
   startDate: Date;
 };
 
-interface ElevatedEmployee2 extends Admin2, Employee2 {}
+interface ElevatedEmployee2 extends Admin2, Employee2 {} // over me
 
 const employee2: ElevatedEmployee2 = {
   name: "Daniel",
@@ -39,7 +39,7 @@ const employee2: ElevatedEmployee2 = {
   startDate: new Date("1983-12-15"),
 };
 
-type UnknownEmployee = Employee2 | Admin2;
+type UnknownEmployee = Employee2 | Admin2; // over me
 
 function printEmployeeInformation(employee: UnknownEmployee) {
   console.log("Employee Name : " + employee.name); // Ok, easy
@@ -86,7 +86,7 @@ class Truck {
 const vehicle1 = new Car();
 const vehicle2 = new Truck();
 
-type Vehicle = Car | Truck;
+type Vehicle = Car | Truck; // over me
 
 function useVehicle(vehicle: Vehicle) {
   if (vehicle instanceof Truck) {

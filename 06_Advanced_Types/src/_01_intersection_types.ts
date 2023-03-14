@@ -14,7 +14,7 @@ type Employee = {
   startDate: Date;
 };
 
-type ElevatedEmployee = Admin & Employee;
+type ElevatedEmployee = Admin & Employee; // over me
 
 const employee: ElevatedEmployee = {
   name: "Daniel",
@@ -35,7 +35,7 @@ interface Employee1 {
 
 // type ElevatedEmployee1 =  Admin1 & Employee1;
 // OR
-interface ElevatedEmployee1 extends Admin1, Employee1 {}
+interface ElevatedEmployee1 extends Admin1, Employee1 {} // over me
 
 const employee1: ElevatedEmployee1 = {
   name: "Daniel",
@@ -48,4 +48,4 @@ const employee1: ElevatedEmployee1 = {
 type Combinable = string | number;
 type Numeric = number | boolean;
 
-type Universal = Combinable & Numeric;
+type Universal = Combinable & Numeric; // over me
