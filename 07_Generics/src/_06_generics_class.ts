@@ -48,3 +48,13 @@ const numberStringStorage = new ArrayStorage<number | string>();
 numberStringStorage.addItem(10);
 numberStringStorage.addItem("John Doe");
 numberStringStorage.getItems();
+//----------------------------------------------------
+
+const numberStringStorageBoolean = new ArrayStorage<
+  number | string | boolean
+>();
+
+numberStringStorageBoolean.addItem(10);
+numberStringStorageBoolean.addItem("John Doe");
+numberStringStorageBoolean.addItem(true);
+numberStringStorageBoolean.getItems();

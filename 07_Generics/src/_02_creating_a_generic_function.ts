@@ -3,12 +3,11 @@
 
 To accept dynamic types
 
-
 */
 
-//--> function that merges 2 object and return an object
+//--> function that merges 2 objects and return an object
 
-// case 1
+// ------------------------------------- case 1
 
 function merge2_1(objectA: object, objectB: object) {
   return Object.assign(objectA, objectB);
