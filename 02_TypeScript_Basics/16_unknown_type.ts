@@ -1,4 +1,4 @@
-/* Unkown Types 
+/* Unknown Types 
 ================= */
 
 let userInput: unknown;

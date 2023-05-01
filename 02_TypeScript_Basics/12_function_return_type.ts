@@ -1,4 +1,4 @@
-/* Function Return Typs & Void  
+/* Function Return Type & Void  
 ============================== */
 
 function add(input1: number, input2: number): number | string {

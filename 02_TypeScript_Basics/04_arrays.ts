@@ -30,6 +30,7 @@ favoriteActivities3 = ["sports", 1, true]; // Correct, array of any
 //
 
 console.log("person.name = ", person.name);
+
 for (const hobby of person.hobbies) {
   console.log(
     hobby[0].toUpperCase() + hobby.slice(1),

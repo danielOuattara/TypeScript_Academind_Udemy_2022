@@ -16,10 +16,10 @@ const person: {
 console.log("person = ", person);
 console.log("------------------");
 
-person.role.push("admin"); // push() is ONLY accepted in Tuple
+person.role.push("admin"); // Tuple ONLY accepted push() to update its content
 person.role = [0, "admin"]; //  Correct
 
-// person.role = [0, "admin", "user"]; // X Incorrect, can't altere Tuple
+// person.role = [0, "admin", "user"]; // X Incorrect, can't alter Tuple
 // person.role[1] = 10; // Incorrect, Tuple can't be altered
 
 console.log("person = ", person);

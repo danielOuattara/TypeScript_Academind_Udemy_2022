@@ -1,4 +1,4 @@
-/* Litteral Types 
+/* Literal Types 
 ================= */
 
 function combine(

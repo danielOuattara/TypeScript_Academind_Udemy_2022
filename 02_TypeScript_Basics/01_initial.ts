@@ -14,10 +14,10 @@
 
 // console.log(result);
 
-/* Typsecript help during development, it does not run on runtime 
+/* Typescript help during development, it does not run on runtime 
 -----------------------------------------------------------------
 
- - Javascript => dynamic type: evaluated on runtine
+ - Javascript => dynamic type: evaluated on runtime
  - TypeScript => static: evaluated before runtime
 
  CAUTION: The core primitive types in TypeScript are all lowercase!

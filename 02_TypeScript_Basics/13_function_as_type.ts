@@ -37,7 +37,7 @@ combinedValue_2 = add; // Accepted, because it takes 2 numbers params & return n
 
 console.log(combinedValue_1(6, 8));
 
-// combinedValue_2 = 5; // X Incorrect, itis a function , not a number
+// combinedValue_2 = 5; // X Incorrect, it is a function , not a number
 
 // combinedValue_2 = add_2; // Incorrect, because, here combined_2 will be a function that return "void"
 // which is not accepted in its definition, line 34
