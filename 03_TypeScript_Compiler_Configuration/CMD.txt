@@ -15,7 +15,8 @@ tsc -w      => runs all *.ts file in watch mode
       options by default following the 'target' options value
     
     - if "lib" option is SET, I have to specify all library 
-      that I need to work with
+      that I need to work with like:
+       "dom", "es6", "dom.iterable", scripthost", etc...
 
 6) more configuration & compilation options:
     - allowsJs
@@ -26,10 +27,10 @@ tsc -w      => runs all *.ts file in watch mode
     working with sourceMap option: help to debug *.ts files 
 
 8) 
-    -rootDir & outDir options 
+    - rootDir & outDir options 
     - removeComments // in .js
     - noEmit options
-    - downlevel Iteration
+    - downlevelIteration
 
 9)  
     -noEmitOnError: stop emitting file on compilation errors
@@ -38,4 +39,4 @@ tsc -w      => runs all *.ts file in watch mode
     - strict: true
     - noImplicitAny
     - strictNullCheck
-    
+    - strictBIndCall
