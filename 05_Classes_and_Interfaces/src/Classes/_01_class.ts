@@ -13,10 +13,10 @@ class Department {
 }
 
 const accounting = new Department("Accounting", 2011);
-console.log("accounting =", accounting);
+console.log("accounting: ", accounting);
 accounting.describe(); // department: Accounting
 
-/* interesting thing about the this keyword ! 
+/* interesting thing about the "this" keyword ! 
 ---------------------------------------------*/
 const accountingCopy = { describe: accounting.describe };
 accountingCopy.describe(); // department: Undefined
@@ -24,9 +24,7 @@ accountingCopy.describe(); // department: Undefined
 /* what happened ? 
 - 'this' refers to the 'instance' that called 'name' property
 - accountingCopy is an object that does not have a name property
-- so undefined is returned
-
-*/
+- so undefined is returned */
 
 console.log("-----------------------------");
 //--------------------------------------------------------------

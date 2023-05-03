@@ -11,3 +11,6 @@ class Product {
     console.log(this.isListed);
   }
 }
+
+const product1 = new Product("television", 1200);
+console.log("product1 :", product1);
