@@ -1,3 +1,5 @@
+export {};
+
 /* Objects Type 
 =================*/
 
@@ -69,7 +71,7 @@ const product_javascript = {
 
 console.log("product_javascript = ", product_javascript);
 
-// It's TypeScript type is:
+// Its TypeScript type is:
 const product: {
   id: string;
   price: number;
