@@ -1,8 +1,9 @@
+export {};
+
 //--------------------------------------------------------------
-//
 // Access modifier
 
-class Department_3 {
+class Department {
   name: string;
   year: number;
   private employees: string[] = [];
@@ -12,8 +13,8 @@ class Department_3 {
     this.year = deptYear;
   }
 
-  describe(this: Department_3) {
-    console.log("Department_3: ", this.name);
+  describe(this: Department) {
+    console.log("Department: ", this.name);
   }
 
   addEmployee(employee: string) {
@@ -26,13 +27,15 @@ class Department_3 {
   }
 }
 
-const accounting_3 = new Department_3("Accounting_3", 2011);
-console.log("accounting_3 =", accounting_3);
+const accounting = new Department("Accounting", 2011);
+console.log("accounting =", accounting);
 
-accounting_3.addEmployee("John Doe");
-accounting_3.addEmployee("Anna Doe");
+accounting.addEmployee("John Doe");
+accounting.addEmployee("Anna Doe");
 
-accounting_3.printEmployeesInformation();
-console.log("accounting_3 =", accounting_3);
+// accounting.employees[accounting.employees.length - 1] = "Martin"; // Property 'employees' is private and only accessible within class 'Department'
+
+accounting.printEmployeesInformation();
+console.log("accounting =", accounting);
 
 console.log("-----------------------------");

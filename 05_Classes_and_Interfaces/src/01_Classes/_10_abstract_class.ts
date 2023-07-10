@@ -1,19 +1,16 @@
-abstract class Department_10 {
-  // private readonly id: string;
-  // private name: string;
-  protected employees: string[] = []; // protected access modifier allows child class to access field
+export {};
+
+abstract class Department {
+  protected employees: string[] = [];
   static countryOfOrigin = "Russia";
 
-  constructor(protected readonly id: string, public name: string) {
-    // this.id = id;
-    // this.name = n;
-  }
+  constructor(protected readonly id: string, public name: string) {}
 
   static createEmployee(name: string) {
     return { name };
   }
 
-  abstract describe(this: Department_10): void;
+  abstract describe(this: Department): void;
 
   addEmployee(employee: string) {
     // validation etc
@@ -27,7 +24,9 @@ abstract class Department_10 {
   }
 }
 
-class ITDepartment_10 extends Department_10 {
+//-------------------------------------------------------------
+
+class ITDepartment extends Department {
   admins: string[];
 
   constructor(id: string, admins: string[]) {
@@ -36,11 +35,27 @@ class ITDepartment_10 extends Department_10 {
   }
 
   describe() {
-    console.log(`ITDepartment_10 id(${this.id}): ${this.name}`);
+    console.log(`ITDepartment id(${this.id}): ${this.name}`);
   }
 }
 
-class AccountingDepartment_10 extends Department_10 {
+console.log("-----------------------------------");
+const it_Department_10 = new ITDepartment("d1", ["Max"]);
+
+it_Department_10.addEmployee("Max");
+it_Department_10.addEmployee("Manu");
+
+// it_Department_10.employees[2] = 'Anna';
+
+it_Department_10.describe();
+it_Department_10.name = "NEW NAME";
+it_Department_10.printEmployeeInformation();
+
+console.log(it_Department_10);
+
+//-------------------------------------------------------------
+
+class AccountingDepartment extends Department {
   private lastReport: string;
 
   constructor(id: string, private reports: string[]) {
@@ -49,7 +64,7 @@ class AccountingDepartment_10 extends Department_10 {
   }
 
   describe() {
-    console.log(`Accounting_10 id(${this.id}): ${this.name}`);
+    console.log(`Accounting id(${this.id}): ${this.name}`);
   }
 
   // overriding parent class method
@@ -83,23 +98,8 @@ class AccountingDepartment_10 extends Department_10 {
     this.addReport(input);
   }
 }
-console.log("-----------------------------------");
-//-----------------------------------------------
-// const it_Department_10 = new ITDepartment_10("d1", ["Max"]);
 
-// it_Department_10.addEmployee("Max");
-// it_Department_10.addEmployee("Manu");
-
-// // it_Department_10.employees[2] = 'Anna';
-
-// it_Department_10.describe();
-// it_Department_10.name = "NEW NAME";
-// it_Department_10.printEmployeeInformation();
-
-// console.log(it_Department_10);
-console.log("-----------------------------------");
-//------------------------------------------------
-const accounting_10 = new AccountingDepartment_10("d2", []);
+const accounting_10 = new AccountingDepartment("d2", []);
 
 accounting_10.addEmployee("Max");
 accounting_10.addEmployee("Man");
@@ -120,6 +120,6 @@ console.log("-----------------------------------");
 //------------------------------------------------
 // static
 
-const employee_10 = Department_10.createEmployee("Daniel");
+const employee_10 = Department.createEmployee("Daniel");
 console.log("employee_10", employee_10); // { name: "Daniel"}
-console.log(Department_10.countryOfOrigin); // Russia
+console.log(Department.countryOfOrigin); // Russia

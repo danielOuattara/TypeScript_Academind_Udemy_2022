@@ -1,7 +1,8 @@
+export {};
 //--------------------------------------------------------------
-// Readonly
+// Inheritance
 
-class Department_6 {
+class Department {
   private employees: string[] = [];
 
   constructor(
@@ -10,7 +11,7 @@ class Department_6 {
     public year: number,
   ) {}
 
-  describe(this: Department_6) {
+  describe(this: Department) {
     console.log(
       `Department title: ${this.name} since year ${this.year}; id is ${this.id} }`,
     );
@@ -26,9 +27,9 @@ class Department_6 {
   }
 }
 
-//----------------------------
+//-----------------------------------------------------------------
 
-class ITDepartment extends Department_6 {
+class ITDepartment extends Department {
   constructor(
     id: string,
     name: string,
@@ -36,7 +37,6 @@ class ITDepartment extends Department_6 {
     private admins: string[],
   ) {
     super(id, name, year);
-    this.admins = admins;
   }
 
   describeAdmins() {
@@ -49,24 +49,28 @@ const itDepartment = new ITDepartment("123", "IT_Department", 2009, [
   "Julie",
 ]);
 
+console.log("itDepartment = ", itDepartment);
+console.log("-----------------------------");
+
 itDepartment.describe();
 itDepartment.addEmployee("Gaia");
 itDepartment.addEmployee("Amaya");
 itDepartment.printEmployeeInformation();
 console.log("IT_Department =", itDepartment);
+itDepartment.describeAdmins();
 console.log("-----------------------------");
-//----------------------------
 
-class AccountingDepartment extends Department_6 {
+//-------------------------------------------------------------------
+
+class AccountingDepartment extends Department {
   private reports: string[] = [];
   private admins: string[] = [];
 
   constructor(id: string, name: string, year: number) {
     super(id, name, year);
-    // this.admins = admins;
   }
 
-  addAdmins(admins: string[]) {
+  setAdmins(admins: string[]) {
     this.admins = admins;
   }
 
@@ -74,7 +78,7 @@ class AccountingDepartment extends Department_6 {
     console.log(`Admins are ${this.admins}`);
   }
 
-  addReports(text: string) {
+  setReports(text: string) {
     this.reports.push(text);
   }
 
@@ -89,7 +93,10 @@ const accountingDepartment = new AccountingDepartment(
   2010,
 );
 
-accountingDepartment.addAdmins(["Stela", "Marcus"]);
+console.log("accountingDepartment = ", accountingDepartment);
+console.log("-----------------------------");
+
+accountingDepartment.setAdmins(["Stela", "Marcus"]);
 
 accountingDepartment.describe();
 
@@ -98,9 +105,11 @@ accountingDepartment.addEmployee("Martin");
 accountingDepartment.printEmployeeInformation();
 console.log("accounting Department =", accountingDepartment);
 
-accountingDepartment.addReports("The payment is completed from client 1_253 ");
+console.log("-----------------------------");
+
+accountingDepartment.setReports("The payment is completed from client 1_253 ");
 accountingDepartment.printReport();
 
-accountingDepartment.addReports("The delivery for furniture is completed ");
+accountingDepartment.setReports("The delivery for furniture is completed ");
 accountingDepartment.printReport();
 console.log("-----------------------------");
