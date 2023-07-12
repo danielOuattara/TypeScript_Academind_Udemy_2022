@@ -1,18 +1,20 @@
-console.log("-------");
+export {};
+
+console.log("------------------------------------------");
 
 /* Type guards
 --------------- */
 
 // - 1
 //
-type Combinable2 = string | number;
-type Numeric2 = number | boolean;
+type Combinable = string | number;
+type Numeric = number | boolean;
 
-type Universal2 = Combinable2 & Numeric2;
+type Universal = Combinable & Numeric;
 
 //-------------
 
-function adder1(a: Combinable2, b: Combinable2) {
+function adder1(a: Combinable, b: Combinable) {
   // below is a type guard
   if (typeof a === "string" || typeof b === "string") {
     return a.toString() + b.toString();
@@ -21,27 +23,41 @@ function adder1(a: Combinable2, b: Combinable2) {
 }
 
 //-----------
-type Admin2 = {
+type Admin = {
   name: string;
   privileges: string[];
 };
 
-type Employee2 = {
+type Employee = {
   name: string;
   startDate: Date;
 };
 
-interface ElevatedEmployee2 extends Admin2, Employee2 {} // over me
+//
+interface ElevatedEmployeeInterface extends Admin, Employee {} // over me
 
-const employee2: ElevatedEmployee2 = {
+const employee_interface: ElevatedEmployeeInterface = {
   name: "Daniel",
   privileges: ["start server", "delete old requests"],
   startDate: new Date("1983-12-15"),
 };
 
-type UnknownEmployee = Employee2 | Admin2; // over me
+console.log("employee_interface = ", employee_interface);
+console.log("------------------------------------------");
+//---------------------------
 
-function printEmployeeInformation(employee: UnknownEmployee) {
+//
+type ElevatedEmployee = Admin & Employee; // over me
+
+const employee: ElevatedEmployee = {
+  name: "Daniel",
+  privileges: ["start server", "delete old requests"],
+  startDate: new Date("1983-12-15"),
+};
+
+type UnknownEmployeeStatus = Employee | Admin; // over me
+
+function printEmployeeInformation(employee: UnknownEmployeeStatus) {
   console.log("Employee Name : " + employee.name); // Ok, easy
 
   if ("privileges" in employee) {
@@ -52,15 +68,17 @@ function printEmployeeInformation(employee: UnknownEmployee) {
   }
 }
 
-printEmployeeInformation(employee2);
+printEmployeeInformation(employee);
 console.log("-------");
+
 printEmployeeInformation({ name: "John", startDate: new Date() });
 console.log("-------");
+
 printEmployeeInformation({
   name: "Jana",
   privileges: ["high salary", "much work"],
 });
-console.log("-------");
+console.log("------------------------------------------");
 
 //
 // - 2

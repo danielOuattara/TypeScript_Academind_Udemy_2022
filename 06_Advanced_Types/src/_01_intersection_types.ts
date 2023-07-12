@@ -1,9 +1,11 @@
+export {};
+
 // Code goes here!
 
 /* Intersection :  & = intersection operator
 -----------------*/
 
-//----------------------------- using Types
+//--------------------------------------------- using Types
 type Admin = {
   name: string;
   privileges: string[];
@@ -14,7 +16,7 @@ type Employee = {
   startDate: Date;
 };
 
-type ElevatedEmployee = Admin & Employee; // over me
+type ElevatedEmployee = Admin & Employee; // over me, ElevatedEmployee must implement both of its parents types
 
 const employee: ElevatedEmployee = {
   name: "Daniel",
@@ -22,7 +24,9 @@ const employee: ElevatedEmployee = {
   startDate: new Date("1983-11-15"),
 };
 
-//--------------------------------- using interface
+console.log("employee = ", employee);
+
+//--------------------------------------------- using interface
 interface Admin1 {
   name: string;
   privileges: string[];
@@ -49,3 +53,15 @@ type Combinable = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric; // over me
+
+//----------------------------------------
+
+type Type1 = number;
+type Type2 = boolean;
+type Type3 = string;
+type Type4 = Object;
+
+type Final_12 = Type1 & Type2;
+type Final_13 = Type1 & Type3;
+type Final_23 = Type2 & Type3;
+type Final_14 = Type2 & Type4;

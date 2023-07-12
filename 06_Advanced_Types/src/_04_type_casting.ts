@@ -1,5 +1,6 @@
-const paragraph = document.querySelector("p")!; // over me
+// export {};
 
+const paragraph = document.querySelector("p")!; // over me
 paragraph.innerHTML = "Hello";
 
 const paragraph2 = document.getElementById("message-output"); // over me

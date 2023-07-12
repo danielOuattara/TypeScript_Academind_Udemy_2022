@@ -4,8 +4,8 @@ console.log("-----------");
 flexibility regarding the properties they might hold */
 
 interface ErrorContainer {
-  //   id: string; // Correct: conforms to index type
   [prop: string]: string;
+  //   id: string; // Correct: conforms to index type
   // year?: number; // Incorrect: must conform to index type
   // childNumber: number; // Incorrect: must conform to index type
 }
