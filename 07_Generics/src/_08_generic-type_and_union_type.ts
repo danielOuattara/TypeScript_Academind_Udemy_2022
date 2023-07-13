@@ -1,3 +1,5 @@
+export {};
+
 /* _08_generic-type_and_union_type
 ------------------------------------
 
@@ -7,7 +9,7 @@
 
 //---------------------------------------  Generic Type
 
-class ArrayStorage8_1<T extends string | number | boolean> {
+class ArrayStorage_1<T extends string | number | boolean> {
   private data: T[] = [];
 
   addItem(item: T) {
@@ -23,7 +25,7 @@ class ArrayStorage8_1<T extends string | number | boolean> {
   }
 }
 
-const textStorage8_1 = new ArrayStorage8_1<string>();
+const textStorage8_1 = new ArrayStorage_1<string>();
 
 textStorage8_1.addItem("Daniel");
 textStorage8_1.addItem("toto");
@@ -43,7 +45,7 @@ IS NOT
 
 */
 
-class ArrayStorage8_2 {
+class ArrayStorage_2 {
   private data: (string | number | boolean)[] = [];
 
   addItem(item: string | number | boolean) {
@@ -59,7 +61,7 @@ class ArrayStorage8_2 {
   }
 }
 
-const textStorage8_2 = new ArrayStorage8_2();
+const textStorage8_2 = new ArrayStorage_2();
 
 textStorage8_2.addItem("Daniel");
 textStorage8_2.addItem("toto");

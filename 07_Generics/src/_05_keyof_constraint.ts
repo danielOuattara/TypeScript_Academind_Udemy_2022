@@ -1,11 +1,15 @@
+export {};
+
 /* _05_keyof_constraints.ts
 ------------------------------------- */
 
-interface Length {
+//------------------------------- before
+
+interface Length_Interface {
   length: number;
 }
 
-function countAndDescribe5<T extends Length>(element: T) {
+function countAndDescribe<T extends Length_Interface>(element: T) {
   let descriptionText = "No value";
 
   if (element.length === 1) {
@@ -13,33 +17,35 @@ function countAndDescribe5<T extends Length>(element: T) {
   } else if (element.length > 1) {
     descriptionText = `Got ${element.length} elements`;
   }
-  return [element, descriptionText];
+  return [descriptionText, element];
 }
 
-console.log(countAndDescribe5(""));
-console.log(countAndDescribe5("Hello there"));
-console.log(countAndDescribe5(["Hello", "there"]));
-// console.log(countAndDescribe5(10)); // Incorrect: Argument of type 'number' is not assignable to parameter of type 'Length'
+console.log(countAndDescribe(""));
+console.log(countAndDescribe("Hello there"));
+console.log(countAndDescribe(["Hello", "there"]));
+// console.log(countAndDescribe(10)); // Incorrect: Argument of type 'number' is not assignable to parameter of type 'Length_Interface'
 //
 //
-//----------------------------------- new
+//----------------------------------- NEW
 
-// Incorrect
+// Incorrect expression of function
 
-// function extractAndDescribe5_1(obj: object, key: string) {
+// function extractAndDescribe_1(obj: Object, key: string) {
 //   return `Value: ${obj[key]}`;
 // }
 
-// extractAndDescribe5_1({}, "name");
+// extractAndDescribe_1({}, "name");
 
 //-------------------------------------------
 
-function extractAndDescribe5_2<T extends object, V extends keyof T>(
+function extractAndDescribe_2<T extends Object, V extends keyof T>(
   obj: T,
   key: V,
 ) {
   return `Value: ${obj[key]}`;
 }
 
-// extractAndDescribe5_2({}, "name"); // Incorrect, object is empty
-extractAndDescribe5_2({ name: "Daniel" }, "name"); // OK
+// extractAndDescribe_2({}, "name"); // Incorrect, object is empty
+extractAndDescribe_2({ name: "Daniel" }, "name"); // OK
+
+console.log(extractAndDescribe_2({ name: "Daniel" }, "name"));
