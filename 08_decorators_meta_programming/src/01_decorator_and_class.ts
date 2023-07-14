@@ -1,33 +1,38 @@
+export {};
+
 /* 01_decorator_and_class.ts
 ----------------------------- */
 
-console.log("----------------------");
-
-class Person1_1 {
+class Person_1 {
   name = "Daniel";
   constructor() {
-    console.log("Creating a person object");
+    console.log("Creating a person object ...");
   }
 }
 
-const person1_1 = new Person1_1();
-console.log(person1_1);
+const person_1 = new Person_1();
+console.log(person_1);
 
-// --------------------- A decorator is a function that is pally to a class
-console.log("----------------------");
+//--------------------------------------------------------------------- Decorator
 
+// A decorator is a function that is applied to something, like a class in a certain way
+console.log("----------------------------------------------");
+
+// first Decorator
 function Logger(constructor: Function) {
   console.log("Logging... Logger");
   console.log(constructor.toString());
 }
 
 @Logger
-class Person1_2 {
-  name = "Daniel";
+class Person_2 {
+  name = "Julie";
   constructor() {
     console.log("Creating a person object");
   }
 }
 
-const person1_2 = new Person1_2();
-console.log(person1_2);
+const person_2 = new Person_2();
+console.log(person_2);
+
+// IMPORTANT : Decorators functions are executed on class definition, but not on instantiation
