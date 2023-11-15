@@ -18,3 +18,6 @@ const userInput3 = <HTMLInputElement>document.getElementById("user-input"); // o
 // method 2
 const paragraph4 = document.getElementById("message") as HTMLParagraphElement; // over me
 const userInput4 = document.getElementById("user-input") as HTMLInputElement; // over me
+
+paragraph4.innerHTML = "Hello World";
+userInput4.value = "John Doe ";

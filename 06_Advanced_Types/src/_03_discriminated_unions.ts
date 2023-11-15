@@ -9,13 +9,13 @@ console.log("------------------------------------");
 */
 
 interface Bird {
-  type: "bird"; // help to discriminate
+  type: "bird"; // <-- help to discriminate
   year: "2003";
   flyingSpeed: number;
 }
 
 interface Horse {
-  type: "horse"; // help to discriminate
+  type: "horse"; // <-- help to discriminate
   gallopSpeed: number;
 }
 
@@ -33,7 +33,7 @@ function movingAnimal(animal: Animal) {
     default:
       speed = 0;
   }
-  console.log("Moving with speed :" + speed);
+  console.log(`${animal.type} is Moving with speed : ` + speed);
 }
 
 movingAnimal({ type: "bird", flyingSpeed: 300, year: "2003" });
