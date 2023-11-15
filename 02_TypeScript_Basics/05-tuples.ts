@@ -19,7 +19,9 @@ console.log("person = ", person);
 console.log("------------------");
 
 person.role.push("admin"); // Tuple ONLY accepted push() to update its content
-person.role = [0, "admin"]; //  Correct
+// person.role.push(true); // Incorrect : Argument of type 'boolean' is not assignable to parameter of type 'string | number'.
+person.role = [0, "admin"]; //  Correct: updating the tuple
+person.role = [0, "maestro"]; //  Correct: updating the tuple
 
 // person.role = [0, "admin", "user"]; // X Incorrect, can't alter Tuple
 // person.role[1] = 10; // Incorrect, Tuple can't be altered

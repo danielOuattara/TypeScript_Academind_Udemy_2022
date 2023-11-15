@@ -15,3 +15,9 @@ console.log("combinedAges = ", combinedAges);
 
 const combinedNames = combine("John", "Doe");
 console.log("combinedAges = ", combinedNames);
+
+const combinedMixed = combine("John", 45);
+console.log("combinedMixed = ", combinedMixed);
+
+const combinedMixed_2 = combine(45, "John");
+console.log("combinedMixed_2 = ", combinedMixed_2);

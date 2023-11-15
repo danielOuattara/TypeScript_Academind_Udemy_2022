@@ -17,7 +17,6 @@ favoriteActivities = ["sports"];
 // Correct, received an array of string
 
 favoriteActivities = ["sports", 1];
-// Incorrect, array of string only
 
 let favoriteActivities2: any[];
 

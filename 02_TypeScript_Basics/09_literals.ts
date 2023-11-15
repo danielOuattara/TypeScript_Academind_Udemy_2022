@@ -22,3 +22,15 @@ console.log("combinedAges = ", combinedAges);
 
 const combinedNames = combine("John", "Doe", "as-text");
 console.log("combinedAges = ", combinedNames);
+
+const combinedMixed_1 = combine("John", 45, "as-number");
+console.log("combinedMixed_1 = ", combinedMixed_1);
+
+const combinedMixed_2 = combine("John", 45, "as-text");
+console.log("combinedMixed_2 = ", combinedMixed_2);
+
+const combinedMixed_3 = combine(45, "John", "as-number");
+console.log("combinedMixed_3 = ", combinedMixed_3);
+
+const combinedMixed_4 = combine(45, "John", "as-text");
+console.log("combinedMixed_4 = ", combinedMixed_4);

@@ -21,5 +21,6 @@ function sendRequest(data: string, cb: (response: any) => void) {
 
 // Does compile with no Error
 sendRequest("Send this!", (response) => {
-  return console.log(response);
+  console.log(response);
+  return true;
 });

@@ -3,7 +3,7 @@ export {};
 /* Enum Types 
 ================*/
 
-// Approach by hand: tedious
+// Approach by hand: tedious !
 
 const ADMIN = 0;
 const READ_ONLY = 1;
