@@ -1,3 +1,5 @@
+console.log("----------------------------- 0");
+
 class Department {
   name: string;
   year: number;
@@ -27,7 +29,7 @@ accounting.describe(); // Accounting
 accounting.describe_2(); // Accounting
 accounting.describe_3(); // Accounting
 
-console.log("-----------------------------");
+console.log("----------------------------- 1");
 
 /* interesting thing about the "this" keyword ! 
 ---------------------------------------------*/
@@ -38,14 +40,18 @@ const accounting_Copy_A = {
 };
 accounting_Copy_A.show(); // Undefined
 accounting_Copy_A.show_2(); // Accounting
-// accounting_Copy_A.show_3(); // Error : The 'this' context of type '{ show: () => void; show_2: () => void; show_3: (this: Department) => void; }' is not assignable to method's 'this' of type 'Department'.
+// accounting_Copy_A.show_3();  // Error
+/* The 'this' context of type 
+'{ show: () => void; show_2: () => void; show_3: (this: Department) => void; }' 
+is not assignable to method's 'this' of type 'Department'. 
+*/
 
 /* what happened ? 
 - 'this' refers to the 'instance' that called 'name' property
 - accounting_Copy_A is an object that does not have a name property
 - so undefined is returned */
 
-console.log("-----------------------------");
+console.log("----------------------------- 2");
 
 const accounting_Copy_B = {
   name: "Engineering",
@@ -57,7 +63,7 @@ accounting_Copy_B.show(); // Engineering
 accounting_Copy_B.show_2(); // Accounting
 // accounting_Copy_B.show_3(); // Error
 
-console.log("--------------------------------------------------- ");
+console.log("----------------------------- 3");
 //--------------------------------------------------------------
 
 class Department_2 {

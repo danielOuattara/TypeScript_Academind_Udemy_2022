@@ -29,6 +29,16 @@ class Department {
 
 //-----------------------------------------------------------------
 
+class ITDepartment_0 extends Department {} // OK , as long as parent constructor is used
+
+const itDepartment_0 = new ITDepartment_0("123", "IT_Department", 2009);
+console.log("itDepartment_0 = ", itDepartment_0);
+
+console.log("-----------------------------");
+
+//------------------------------------------------------------------
+// creating its own child constructor
+
 class ITDepartment extends Department {
   constructor(
     id: string,
