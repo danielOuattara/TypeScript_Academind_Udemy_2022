@@ -17,12 +17,12 @@ function merge_1_1(object_A: object, object_B: object) {
 
 console.log(merge_1_1({ name: "Daniel" }, { country: "France" })); // Ok
 
-// but
+// but cannot access to key property in the output object
 const mergedObjects_1_1 = merge_1_1({ name: "Daniel" }, { country: "France" });
 // mergedObjects_1_1.name; // unknown
 // mergedObjects_1_1.country; // unknown
 
-// OR
+// OR (same problem below as previous)
 
 function merge_1_2(object_A: object, object_B: object) {
   return { ...object_A, ...object_B };
@@ -37,7 +37,7 @@ const mergedObjects_1_2 = merge_1_2({ name: "Daniel" }, { country: "France" });
 
 //-------------------------------------- case 2
 
-/*  No more accepted y TypeScript 
+/*  No more accepted by TypeScript 
 function merge_2_1<T, U>(object_A: T, object_B: U) {  // Constraint required on object_A
   return Object.assign(object_A, object_B);
 }

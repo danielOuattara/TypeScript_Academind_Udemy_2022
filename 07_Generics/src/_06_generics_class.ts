@@ -4,8 +4,8 @@ export {};
 -------------------------- 
 
 We can design generic every where needed:
+- inside some method and/or function
 - in class definition
-- inside some method
 - etc...
 */
 
@@ -33,8 +33,9 @@ const textStorage = new ArrayStorage<string>();
 
 textStorage.addItem("Daniel");
 textStorage.addItem("toto");
-textStorage.removeItem("toto");
+textStorage.getItems();
 
+textStorage.removeItem("toto");
 textStorage.getItems();
 
 //----------------------------------------------------

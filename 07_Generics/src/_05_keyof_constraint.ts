@@ -9,7 +9,7 @@ interface Length_Interface {
   length: number;
 }
 
-function countAndDescribe<T extends Length_Interface>(element: T) {
+function countAndDescribe<T extends Length_Interface>(element: T): [string, T] {
   let descriptionText = "No value";
 
   if (element.length === 1) {
@@ -29,6 +29,8 @@ console.log(countAndDescribe(["Hello", "there"]));
 //----------------------------------- NEW
 
 // Incorrect expression of function
+// Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Object'.
+// No index signature with a parameter of type 'string' was found on type 'Object'.ts(7053)
 
 // function extractAndDescribe_1(obj: Object, key: string) {
 //   return `Value: ${obj[key]}`;
@@ -41,11 +43,11 @@ console.log(countAndDescribe(["Hello", "there"]));
 function extractAndDescribe_2<T extends Object, V extends keyof T>(
   obj: T,
   key: V,
-) {
+): string {
   return `Value: ${obj[key]}`;
 }
 
-// extractAndDescribe_2({}, "name"); // Incorrect, object is empty
+// extractAndDescribe_2({}, "name"); // Incorrect, object is empty hence has no property with key value equal "name"
+//
 extractAndDescribe_2({ name: "Daniel" }, "name"); // OK
-
 console.log(extractAndDescribe_2({ name: "Daniel" }, "name"));

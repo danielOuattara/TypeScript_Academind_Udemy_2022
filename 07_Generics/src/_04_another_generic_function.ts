@@ -20,7 +20,7 @@ console.log("mergedObjects_1 = ", mergedObjects_1);
 //  OR ( Below No constraint at all; because of spread operator)
 
 function merge_2<T, U>(objectA: T, objectB: U) {
-  return { ...objectA, objectB };
+  return { ...objectA, ...objectB };
 }
 
 const mergedObjects_2 = merge_2(
@@ -37,7 +37,7 @@ interface Length_Interface {
   length: number;
 }
 
-function countAndDescribe<T extends Length_Interface>(element: T) {
+function countAndDescribe<T extends Length_Interface>(element: T): [string, T] {
   let descriptionText = "No value provided";
 
   if (element.length === 1) {
