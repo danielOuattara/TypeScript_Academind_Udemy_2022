@@ -12,11 +12,11 @@ function Logger(userName: string) {
 class Person {
   name = "Julie";
   constructor() {
-    console.log("Creating a person object");
+    console.log(`Creating a person object: ${this.name}`);
   }
 }
 
-const person = new Person();
-console.log(person);
+// const person = new Person();
+// console.log(person);
 
 // IMPORTANT : Decorators functions are executed on class definition, but not on class instantiation

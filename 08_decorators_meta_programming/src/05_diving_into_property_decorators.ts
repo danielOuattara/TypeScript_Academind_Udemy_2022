@@ -1,5 +1,12 @@
 export {};
 
+/* 
+ Where do decorator acts on ?
+
+ # decorator acting on a class receive at least one arg: constructor OR target
+ # decorator acting on a class field receive 2 args: constructor OR target
+
+*/
 function Property_Log(target: any, propertyName: string | Symbol) {
   console.log(" --- Property  Decorator --- ");
   console.log("target = ", target);
@@ -10,6 +17,7 @@ class Product {
   @Property_Log
   _title: string;
   private _price: number;
+
   constructor(title: string, price: number) {
     this._title = title;
     this._price = price;

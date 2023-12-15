@@ -1,12 +1,15 @@
 export {};
 
-/* 01_decorator_and_class.ts
------------------------------ */
+/* Decorator is a function you apply to something, like a class
+-------------------------------------------------------------- */
+
+/* 01_decorator_and_class.ts : decorator are all about classes
+---------------------------------------------------------------- */
 
 class Person_1 {
   name = "Daniel";
   constructor() {
-    console.log("Creating a person object ...");
+    console.log("Creating a person object Person_1 ...");
   }
 }
 
@@ -28,7 +31,7 @@ function Logger(constructor: Function) {
 class Person_2 {
   name = "Julie";
   constructor() {
-    console.log("Creating a person object");
+    console.log("Creating a person object Person_2 ...");
   }
 }
 

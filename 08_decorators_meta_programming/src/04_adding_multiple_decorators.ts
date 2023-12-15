@@ -1,8 +1,17 @@
 export {};
 
-// Decorator
+/* 
+# Decorator functions are executed from nearest to farthest 
+  of the class on which they are applied to.
+
+# Decorator factory are executed from first to last declared 
+  in the code.
+
+*/
+
+// Decorator Factory
 function Logger(userName: string) {
-  console.log("--->> Logger Function");
+  console.log("LOGGER DECORATOR FACTORY");
 
   return function (constructor: Function) {
     console.log("~~~>> Logger Decorator Function");
@@ -11,9 +20,9 @@ function Logger(userName: string) {
   };
 }
 
-// Decorator
+// Decorator Factory
 function WithTemplate(template: string, hookId: string) {
-  console.log("--->> WithTemplate Function");
+  console.log("WITHTEMPLATE DECORATOR FACTORY");
   return function (constructor: any) {
     console.log(" ~~~>> Template Decorator Function");
     const person_1 = new constructor();
