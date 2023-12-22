@@ -1,14 +1,20 @@
 export {};
 
+// // first Decorator:
+// function Logger(constructor: Function) {
+//   console.log("Logger...");
+//   console.log(constructor.toString());
+// }
+
 // Decorator factory
-function Logger(userName: string) {
+function Logger(message: string) {
   return function (constructor: Function) {
-    console.log("Logging : ", userName);
+    console.log("Message: ", message);
     console.log(constructor.toString());
   };
 }
 
-@Logger("John Doe")
+@Logger("Logger on Person Class")
 class Person {
   name = "Julie";
   constructor() {
@@ -19,4 +25,7 @@ class Person {
 // const person = new Person();
 // console.log(person);
 
-// IMPORTANT : Decorators functions are executed on class definition, but not on class instantiation
+/* 
+IMPORTANT : Decorators functions can be executed on class definition, 
+            but not on class instantiation 
+*/
