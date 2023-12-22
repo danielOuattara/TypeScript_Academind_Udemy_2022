@@ -19,11 +19,12 @@ console.log(person_1);
 //--------------------------------------------------------------------- Decorator
 
 // A decorator is a function that is applied to something, like a class in a certain way
+// The number of argument(s) that a decorator accepts depend on where the decorator is applied
 console.log("----------------------------------------------");
 
-// first Decorator
+// first Decorator:
 function Logger(constructor: Function) {
-  console.log("Logging... Logger");
+  console.log("Logger...");
   console.log(constructor.toString());
 }
 
