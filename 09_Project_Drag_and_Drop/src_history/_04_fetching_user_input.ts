@@ -1,12 +1,14 @@
-// autoBind decorator
+export {};
 
+//-------------------------------------------
+// autoBind decorator
 function autoBind(
   _target: any,
   _methodName: string | Symbol,
   descriptor: PropertyDescriptor,
 ) {
   const originalMethod = descriptor.value;
-  const adjustableDescriptor: PropertyDescriptor = {
+  const adjustedDescriptor: PropertyDescriptor = {
     configurable: true,
     enumerable: true,
     get() {
@@ -14,11 +16,10 @@ function autoBind(
       return boundFunction;
     },
   };
-  return adjustableDescriptor;
+  return adjustedDescriptor;
 }
 
-//
-// Project input class
+//-------------------------------------------
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   divHostElement: HTMLDivElement;
@@ -30,9 +31,9 @@ class ProjectInput {
   constructor() {
     this.templateElement = document.getElementById(
       "project-input",
-    ) as HTMLTemplateElement;
+    )! as HTMLTemplateElement;
 
-    this.divHostElement = document.getElementById("app") as HTMLDivElement;
+    this.divHostElement = document.getElementById("app")! as HTMLDivElement;
 
     const importedNode = document.importNode(
       this.templateElement.content,
@@ -44,30 +45,30 @@ class ProjectInput {
 
     this.titleInputElement = this.formElement.querySelector(
       "#title",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.descriptionInputElement = this.formElement.querySelector(
       "#description",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.peopleInputElement = this.formElement.querySelector(
       "#people",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
-    //----------------
     this.configure();
     this.attach();
   }
 
+  // gather data & validate
   private gatherUserInput(): [string, string, number] | void {
     const enteredTitle = this.titleInputElement.value;
     const enteredDescription = this.descriptionInputElement.value;
-    const enteredPeople = Number(this.peopleInputElement.value);
+    const enteredPeople = parseFloat(this.peopleInputElement.value);
 
     if (
       enteredTitle.trim().length === 0 ||
       enteredDescription.trim().length === 0 ||
-      enteredPeople === 0
+      !enteredPeople
     ) {
       return alert("Invalid input, please correct and try again");
     } else {
@@ -85,7 +86,6 @@ class ProjectInput {
   private submitHandler(event: Event) {
     event.preventDefault();
     const userInput = this.gatherUserInput();
-
     if (Array.isArray(userInput)) {
       const [title, description, people] = userInput;
       console.log(title, description, people);
@@ -94,7 +94,6 @@ class ProjectInput {
   }
 
   private configure() {
-    // this.formElement.addEventListener("submit", this.submitHandler.bind(this));
     this.formElement.addEventListener("submit", this.submitHandler);
   }
 
