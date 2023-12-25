@@ -1,15 +1,21 @@
 export {};
 
 /* 
-
 Decorators are naturally executed when the class logic is defined;
 but their logic can allow for them to be executed on class instantiation
+
+
+-> Decorators applied to class, method and accessor can return something
+
+
+-> Decorators applied to field attributes and function parameter can also 
+   return something but TypeScript will not consider it
 */
 
 // ----------------------------------------------------
 //
 // 2 arguments for decorator on field item
-function Property_Log(target: any, propertyName: string | Symbol) {
+function Field_Log(target: any, propertyName: string | Symbol) {
   console.log(" --- Property  Decorator --- ");
   console.log("target = ", target);
   console.log("propertyName = ", propertyName);
@@ -60,7 +66,7 @@ function Parameter_Log(
 //======================================================
 
 class Product {
-  @Property_Log
+  @Field_Log
   _title: string;
   private _price: number;
 
