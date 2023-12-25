@@ -1,17 +1,14 @@
-// autoBind decorator
+export {};
 
+//-------------------------------------------
+// autoBind decorator
 function autoBind(
   _target: any,
   _methodName: string | Symbol,
   descriptor: PropertyDescriptor,
 ) {
-  // console.log(" --- Method Decorator --- ");
-  // console.log("target = ", _target);
-  // console.log("MethodName = ", _methodName);
-  // console.log("method descriptor = ", descriptor);
-
   const originalMethod = descriptor.value;
-  const adjustableDescriptor: PropertyDescriptor = {
+  const adjustedDescriptor: PropertyDescriptor = {
     configurable: true,
     enumerable: true,
     get() {
@@ -19,11 +16,10 @@ function autoBind(
       return boundFunction;
     },
   };
-  return adjustableDescriptor;
+  return adjustedDescriptor;
 }
 
-//
-// Project input class
+//-------------------------------------------
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   divHostElement: HTMLDivElement;
@@ -35,9 +31,9 @@ class ProjectInput {
   constructor() {
     this.templateElement = document.getElementById(
       "project-input",
-    ) as HTMLTemplateElement;
+    )! as HTMLTemplateElement;
 
-    this.divHostElement = document.getElementById("app") as HTMLDivElement;
+    this.divHostElement = document.getElementById("app")! as HTMLDivElement;
 
     const importedNode = document.importNode(
       this.templateElement.content,
@@ -49,17 +45,16 @@ class ProjectInput {
 
     this.titleInputElement = this.formElement.querySelector(
       "#title",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.descriptionInputElement = this.formElement.querySelector(
       "#description",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.peopleInputElement = this.formElement.querySelector(
       "#people",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
-    //----------------
     this.configure();
     this.attach();
   }
@@ -71,7 +66,6 @@ class ProjectInput {
   }
 
   private configure() {
-    // this.formElement.addEventListener("submit", this.submitHandler.bind(this));
     this.formElement.addEventListener("submit", this.submitHandler);
   }
 
