@@ -1,3 +1,6 @@
+export {};
+
+//-------------------------------------------
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   divHostElement: HTMLDivElement;
@@ -6,9 +9,9 @@ class ProjectInput {
   constructor() {
     this.templateElement = document.getElementById(
       "project-input",
-    ) as HTMLTemplateElement;
+    )! as HTMLTemplateElement;
 
-    this.divHostElement = document.getElementById("app") as HTMLDivElement;
+    this.divHostElement = document.getElementById("app")! as HTMLDivElement;
 
     const importedNode = document.importNode(
       this.templateElement.content,
