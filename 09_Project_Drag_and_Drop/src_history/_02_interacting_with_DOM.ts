@@ -1,3 +1,6 @@
+export {};
+
+//-------------------------------------------
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   divHostElement: HTMLDivElement;
@@ -9,9 +12,9 @@ class ProjectInput {
   constructor() {
     this.templateElement = document.getElementById(
       "project-input",
-    ) as HTMLTemplateElement;
+    )! as HTMLTemplateElement;
 
-    this.divHostElement = document.getElementById("app") as HTMLDivElement;
+    this.divHostElement = document.getElementById("app")! as HTMLDivElement;
 
     const importedNode = document.importNode(
       this.templateElement.content,
@@ -23,17 +26,16 @@ class ProjectInput {
 
     this.titleInputElement = this.formElement.querySelector(
       "#title",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.descriptionInputElement = this.formElement.querySelector(
       "#description",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.peopleInputElement = this.formElement.querySelector(
       "#people",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
-    //----------------
     this.configure();
     this.attach();
   }
