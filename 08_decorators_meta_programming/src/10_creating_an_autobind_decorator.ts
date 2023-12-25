@@ -17,7 +17,7 @@ function AutoBind(
   console.log("method descriptor = ", descriptor);
 
   const originalMethod = descriptor.value;
-  const adjustableDescriptor: PropertyDescriptor = {
+  const adjustedDescriptor: PropertyDescriptor = {
     configurable: true,
     enumerable: true,
     get() {
@@ -25,11 +25,12 @@ function AutoBind(
       return boundFunction;
     },
   };
-  return adjustableDescriptor;
+  return adjustedDescriptor;
 }
 
 class Printer {
   message = "This works !";
+
   showMessage_1() {
     console.log(this.message);
   }
@@ -41,11 +42,10 @@ class Printer {
 }
 
 const printer_1 = new Printer();
+console.log("printer_1 = ", printer_1);
 
-const button = document.querySelector("button") as HTMLButtonElement;
+const button = document.querySelector("button")! as HTMLButtonElement;
 
-button.addEventListener("click", () => {
-  printer_1.showMessage_1();
-});
+button.addEventListener("click", () => printer_1.showMessage_1());
 
 button.addEventListener("click", printer_1.showMessage_2);
