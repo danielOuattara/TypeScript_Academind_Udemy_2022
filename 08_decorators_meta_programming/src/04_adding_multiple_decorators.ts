@@ -22,7 +22,8 @@ function Logger(userName: string) {
 
 // Decorator Factory
 function WithTemplate(template: string, hookId: string) {
-  console.log("WITHTEMPLATE DECORATOR FACTORY");
+  console.log("WITH TEMPLATE DECORATOR FACTORY");
+
   return function (constructor: any) {
     console.log(" ~~~>> Template Decorator Function");
     const person_1 = new constructor();
