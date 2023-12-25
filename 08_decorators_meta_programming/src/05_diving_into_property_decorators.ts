@@ -4,22 +4,33 @@ export {};
  Where do decorator acts on ?
 
  # decorator acting on a class receive at least one arg: constructor OR target
- # decorator acting on a class field receive 2 args: constructor OR target
+ # decorator acting on a field of a class receive 2 args: constructor OR target
+
+ IMPORTANT: 
+
+  - on an instance field the 'target' is the prototype of the object that is instantiated from the class.
+  - on a static field target = constructor of the class
+
 
 */
-function Property_Log(target: any, propertyName: string | Symbol) {
+function Field_Log(target: any, propertyName: string | Symbol) {
   console.log(" --- Property  Decorator --- ");
   console.log("target = ", target);
   console.log("propertyName = ", propertyName);
 }
 
+//----------------------------------------------------
+
 class Product {
-  @Property_Log
-  _title: string;
+  @Field_Log
+  title: string;
   private _price: number;
 
+  @Field_Log
+  static quantity = 23;
+
   constructor(title: string, price: number) {
-    this._title = title;
+    this.title = title;
     this._price = price;
   }
 
@@ -39,3 +50,6 @@ class Product {
     return this.price * (1 + tax);
   }
 }
+
+// const product_1 = new Product("milk", 1.3);
+// console.log("product_1 = ", product_1);
