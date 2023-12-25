@@ -1,5 +1,11 @@
 export {};
 
+/* 
+target: 
+ - for instance item -> prototype of the object
+ - for static item   -> constructor of the object
+
+*/
 // ----------------------------------------------------
 //
 // 2 arguments for decorator on field item
