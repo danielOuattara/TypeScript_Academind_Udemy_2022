@@ -1,3 +1,5 @@
+export {};
+
 // validation
 interface Validation {
   value: string | number;
@@ -8,6 +10,7 @@ interface Validation {
   max?: number;
 }
 
+//-------------------------------------------
 function validator(item: Validation) {
   let isValid = true;
   if (item.required) {
@@ -15,11 +18,11 @@ function validator(item: Validation) {
   }
 
   if (item.minLength != null && typeof item.value === "string") {
-    isValid = isValid && item.value.toString().trim().length >= item.minLength;
+    isValid = isValid && item.value.trim().length >= item.minLength;
   }
 
   if (item.maxLength != null && typeof item.value === "string") {
-    isValid = isValid && item.value.toString().trim().length <= item.maxLength;
+    isValid = isValid && item.value.trim().length <= item.maxLength;
   }
 
   if (item.min != null && typeof item.value === "number") {
@@ -34,15 +37,15 @@ function validator(item: Validation) {
 }
 // validator({ value: enteredTitle, required: true, minLength:5}
 
-//----------------------------------------------------- autoBind decorator
-
+//-------------------------------------------
+// autoBind decorator
 function autoBind(
   _target: any,
   _methodName: string | Symbol,
   descriptor: PropertyDescriptor,
 ) {
   const originalMethod = descriptor.value;
-  const adjustableDescriptor: PropertyDescriptor = {
+  const adjustedDescriptor: PropertyDescriptor = {
     configurable: true,
     enumerable: true,
     get() {
@@ -50,10 +53,11 @@ function autoBind(
       return boundFunction;
     },
   };
-  return adjustableDescriptor;
+  return adjustedDescriptor;
 }
 
-//-------------------------------------------------------
+//-------------------------------------------
+
 class ProjectInput {
   templateElement: HTMLTemplateElement;
   divHostElement: HTMLDivElement;
@@ -65,9 +69,9 @@ class ProjectInput {
   constructor() {
     this.templateElement = document.getElementById(
       "project-input",
-    ) as HTMLTemplateElement;
+    )! as HTMLTemplateElement;
 
-    this.divHostElement = document.getElementById("app") as HTMLDivElement;
+    this.divHostElement = document.getElementById("app")! as HTMLDivElement;
 
     const importedNode = document.importNode(
       this.templateElement.content,
@@ -79,25 +83,25 @@ class ProjectInput {
 
     this.titleInputElement = this.formElement.querySelector(
       "#title",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.descriptionInputElement = this.formElement.querySelector(
       "#description",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
     this.peopleInputElement = this.formElement.querySelector(
       "#people",
-    ) as HTMLInputElement;
+    )! as HTMLInputElement;
 
-    //----------------
     this.configure();
     this.attach();
   }
 
+  // gather data & validate
   private gatherUserInput(): [string, string, number] | void {
     const enteredTitle = this.titleInputElement.value;
     const enteredDescription = this.descriptionInputElement.value;
-    const enteredPeople = Number(this.peopleInputElement.value);
+    const enteredPeople = parseFloat(this.peopleInputElement.value);
 
     if (
       validator({ value: enteredTitle, required: true, minLength: 3 }) &&
@@ -120,7 +124,6 @@ class ProjectInput {
   private submitHandler(event: Event) {
     event.preventDefault();
     const userInput = this.gatherUserInput();
-
     if (Array.isArray(userInput)) {
       const [title, description, people] = userInput;
       console.log(title, description, people);
