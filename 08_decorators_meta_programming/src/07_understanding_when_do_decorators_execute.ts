@@ -1,14 +1,14 @@
 export {};
 
 /* 
-
-Decorators are executed when the class logic is defined.
+Decorators are executed only ONCE, when the class logic 
+is first defined/evaluated/registered
 */
 
 // ----------------------------------------------------
 //
 // 2 arguments for decorator on field item
-function Property_Log(target: any, propertyName: string | Symbol) {
+function Field_Log(target: any, propertyName: string | Symbol) {
   console.log(" --- Property  Decorator --- ");
   console.log("target = ", target);
   console.log("propertyName = ", propertyName);
@@ -59,7 +59,7 @@ function Parameter_Log(
 //======================================================
 
 class Product {
-  @Property_Log
+  @Field_Log
   _title: string;
   private _price: number;
 
