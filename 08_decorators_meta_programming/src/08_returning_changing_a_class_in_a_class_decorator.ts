@@ -11,12 +11,18 @@ function Logger(userName: string) {
   };
 }
 
-// Decorator: this decorator will be executed only when an object is instantiated from a class
+/* 
+This decorator will be executed only when an object is instantiated;
+This decorator act on a class and return a new constructor function 
+that is build upon the old constructor that it replaces. 
+So it replaces the constructor/class it acts on by a new constructor/class
+*/
 function WithTemplate(template: string, hookId: string) {
   console.log("--->> WithTemplate Function");
   return function <T extends { new (...args: any[]): { name: string } }>(
     originalConstructor: T,
   ) {
+    console.log("originalConstructor = ", originalConstructor);
     return class extends originalConstructor {
       constructor(..._: any[]) {
         super();
@@ -42,8 +48,8 @@ class Person {
   }
 }
 
-// const person = new Person();
-// console.log(person);
+const person = new Person();
+console.log(person);
 
 /*
  IMPORTANT : Decorators functions can be executed
