@@ -1,6 +1,6 @@
-import { ProjectInput } from "./components/project_inputs.js";
-import { ProjectList } from "./components/project_list.js";
-import { ProjectStatusEnum } from "./models/project.js";
+import { ProjectInput } from "./components/project_inputs";
+import { ProjectList } from "./components/project_list";
+import { ProjectStatusEnum } from "./models/project";
 
 new ProjectInput();
 new ProjectList(ProjectStatusEnum.ACTIVE);
