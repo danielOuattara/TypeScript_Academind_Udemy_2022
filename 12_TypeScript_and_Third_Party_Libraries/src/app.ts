@@ -1,9 +1,10 @@
 // Code goes here!
 
 import _ from "lodash";
-import Product from "./product.model";
+import { Product } from "./product.model";
 import "reflect-metadata";
 import { plainToInstance } from "class-transformer";
+import { validate } from "class-validator";
 
 declare var GLOBAL: any;
 
@@ -36,3 +37,16 @@ for (const product of productsFromClass) {
 //------
 const productsFromClass_2 = plainToInstance(Product, fetchedProducts);
 console.log(productsFromClass_2);
+
+//----------------
+
+const newProduct = new Product("", -34);
+validate(newProduct).then((errors) => {
+  if (errors.length > 0) {
+    console.log("---- VALIDATION ERRORS ----");
+    console.log(errors);
+  } else {
+    console.log(newProduct.getInfos());
+  }
+});
+console.log("newProduct = ", newProduct);
