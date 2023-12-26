@@ -1,4 +1,6 @@
 ///<reference path="./base_component.ts" />
+///<reference path="./../decorators/autobind.ts" />
+///<reference path="./../state/project_state_management.ts" />
 
 namespace App {
   export class ProjectItem
