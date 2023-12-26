@@ -1,7 +1,7 @@
-import { autoBind } from "./../decorators/autobind.js";
+import { autoBind as AutoBind } from "./../decorators/autobind.js";
 import { projectState } from "./../state/project_state_management.js";
-import { validator } from "./../utils/project_validation.js";
-import { Component } from "./base_component.js";
+import * as Validation from "./../utils/project_validation.js";
+import Component from "./base_component.js";
 
 export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
   titleInputElement: HTMLInputElement;
@@ -39,13 +39,17 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     const enteredPeople = parseFloat(this.peopleInputElement.value);
 
     if (
-      validator({ value: enteredTitle, required: true, minLength: 3 }) &&
-      validator({
+      Validation.validator({
+        value: enteredTitle,
+        required: true,
+        minLength: 3,
+      }) &&
+      Validation.validator({
         value: enteredDescription,
         required: true,
         minLength: 3,
       }) &&
-      validator({ value: enteredPeople, required: true, min: 1 })
+      Validation.validator({ value: enteredPeople, required: true, min: 1 })
     ) {
       return [enteredTitle, enteredDescription, enteredPeople];
     } else {
@@ -59,7 +63,7 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     this.peopleInputElement.value = "";
   }
 
-  @autoBind
+  @AutoBind
   private submitHandler(event: Event) {
     event.preventDefault();
     const userInput = this.gatherUserInput();

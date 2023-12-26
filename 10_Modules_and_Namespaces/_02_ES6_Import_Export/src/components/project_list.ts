@@ -2,7 +2,7 @@ import { projectState } from "./../state/project_state_management.js";
 import { autoBind } from "./../decorators/autobind.js";
 import { DragTarget } from "./../models/drag_and_drop.js";
 import { Project, ProjectStatusEnum } from "./../models/project.js";
-import { Component } from "./base_component.js";
+import Component from "./base_component.js";
 import { ProjectItem } from "./project_item.js";
 
 export class ProjectList
