@@ -163,7 +163,6 @@ class ProjectList {
 
     for (const project of this.assignedProjects) {
       const listItem = document.createElement("li");
-      const listItem = document.createElement("li");
       listItem.textContent = project.title;
       listElement.appendChild(listItem);
     }
