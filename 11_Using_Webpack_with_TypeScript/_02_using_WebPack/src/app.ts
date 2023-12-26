@@ -5,3 +5,5 @@ import { ProjectStatusEnum } from "./models/project";
 new ProjectInput();
 new ProjectList(ProjectStatusEnum.ACTIVE);
 new ProjectList(ProjectStatusEnum.FINISHED);
+
+console.log("Hello there");
