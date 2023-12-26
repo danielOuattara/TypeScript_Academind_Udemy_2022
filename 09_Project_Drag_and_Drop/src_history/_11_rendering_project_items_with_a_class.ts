@@ -182,7 +182,7 @@ class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> {
       this.project.title;
     (this.element.querySelector("h3")! as HTMLHeadingElement).textContent =
       this.project.people.toString();
-    (this.element.querySelector("h3")! as HTMLParagraphElement).textContent =
+    (this.element.querySelector("p")! as HTMLParagraphElement).textContent =
       this.project.description;
   }
 }
@@ -227,10 +227,6 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     listElement.innerHTML = "";
 
     for (const project of this.assignedProjects) {
-      // const listItem = document.createElement("li");
-      // listItem.textContent = project.title;
-      // listElement.appendChild(listItem);
-
       new ProjectItem(
         (this.element.querySelector("ul") as HTMLUListElement).id,
         project,
