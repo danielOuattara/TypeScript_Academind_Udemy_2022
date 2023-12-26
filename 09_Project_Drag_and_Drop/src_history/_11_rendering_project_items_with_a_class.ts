@@ -46,10 +46,6 @@ class ProjectState extends StateComponent<Project> {
     }
   }
 
-  // addListener(listenerFunction: ListenerFunctionType) {
-  //   this.listeners.push(listenerFunction);
-  // }
-
   addProject(title: string, description: string, numberOfPeople: number) {
     const newProject = new Project(
       new Date().getTime().toString(),
@@ -165,49 +161,6 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   abstract renderContent(): void;
 }
 
-//-------------------------------------------
-
-/*
-
-abstract class Component<T extends HTMLElement, U extends HTMLElement> {
-  templateElement: HTMLTemplateElement;
-  hostElement: T;
-  element: U;
-
-  constructor(
-    templateElementId: string,
-    hostElementId: string,
-    insertAtStart: boolean,
-    newElementId?: string,
-  ) {
-    this.templateElement = document.getElementById(
-      templateElementId,
-    )! as HTMLTemplateElement;
-    this.hostElement = document.getElementById(hostElementId)! as T;
-
-    const importedNode = document.importNode(
-      this.templateElement.content,
-      true,
-    );
-
-    this.element = importedNode.firstElementChild as U;
-    newElementId ? (this.element.id = newElementId) : "";
-
-    this.attach(insertAtStart);
-  }
-
-  private attach(insertAtStart: boolean) {
-    this.hostElement.insertAdjacentElement(
-      insertAtStart ? "afterbegin" : "beforeend",
-      this.element,
-    );
-  }
-
-  abstract configure(): void;
-  abstract renderContent(): void;
-}
-
- */
 //-------------------------------------------
 
 // Project item

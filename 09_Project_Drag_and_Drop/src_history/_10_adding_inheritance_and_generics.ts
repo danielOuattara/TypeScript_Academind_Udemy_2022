@@ -47,10 +47,6 @@ class ProjectState extends StateComponent<Project> {
     }
   }
 
-  // addListener(listenerFunction: ListenerFunctionType) {
-  //   this.listeners.push(listenerFunction);
-  // }
-
   addProject(title: string, description: string, numberOfPeople: number) {
     const newProject = new Project(
       new Date().getTime().toString(),
